@@ -1,4 +1,5 @@
 import { EDUCATION, EXPERIENCE, LEADERSHIP } from "@/data/profile";
+import { BurstText } from "./BurstText";
 import { Reveal } from "./Reveal";
 import { Timeline } from "./Timeline";
 
@@ -8,9 +9,7 @@ export function Experience() {
       <div className="wrap">
         <Reveal>
           <p className="label">Experience</p>
-          <Reveal variant="flip">
-            <h2 className="h2">Where I&apos;ve worked and studied</h2>
-          </Reveal>
+          <BurstText as="h2" className="h2">{"Where I've worked and studied"}</BurstText>
         </Reveal>
 
         <Reveal className="card my-10 grid items-center gap-x-10 gap-y-4 p-6 sm:grid-cols-[auto_1fr] sm:px-8 sm:py-7">

@@ -60,7 +60,7 @@ export function ContactForm() {
   }
 
   return (
-    <form ref={formRef} onSubmit={onSubmit} noValidate className="card grid gap-4 p-7" style={{ background: "rgba(247,242,232,.85)" }}>
+    <form ref={formRef} onSubmit={onSubmit} noValidate className="card grid gap-4 p-7">
       <h3 className="mb-1.5 font-display text-[1.4rem] font-bold">Send a message</h3>
       <div>
         <label htmlFor="f-name" className="mb-1.5 block text-[0.88rem] text-muted">Name</label>

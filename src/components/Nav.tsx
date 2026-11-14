@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { SITE } from "@/data/profile";
+import { ThemeToggle } from "./ThemeToggle";
 
 const LINKS = [
   ["about", "About"],
@@ -56,10 +57,11 @@ export function Nav() {
             </ul>
             <a
               href={SITE.resume}
-              className="inline-flex items-center gap-1.5 rounded-full border-[1.5px] border-maroon px-5 py-2.5 font-mono text-[0.88rem] font-semibold text-maroon transition-colors hover:bg-maroon hover:text-cream"
+              className="inline-flex items-center gap-1.5 rounded-full border-[1.5px] border-maroon px-5 py-2.5 font-mono text-[0.88rem] font-semibold text-maroon transition-colors hover:bg-maroon hover:text-on-accent"
             >
               Resume <ArrowUpRight size={15} aria-hidden />
             </a>
+            <ThemeToggle />
             <button
               type="button"
               aria-label={open ? "Close menu" : "Open menu"}

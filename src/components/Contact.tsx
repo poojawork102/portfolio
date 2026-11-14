@@ -1,6 +1,7 @@
 import { CONTACT, SITE } from "@/data/profile";
 import { ContactForm } from "./ContactForm";
 import { CopyEmail } from "./CopyEmail";
+import { BurstText } from "./BurstText";
 import { Reveal } from "./Reveal";
 
 export function Contact() {
@@ -10,13 +11,11 @@ export function Contact() {
     ["Based in", SITE.location, SITE.timezone],
   ] as const;
   return (
-    <section id="contact" className="section" style={{ background: "linear-gradient(180deg, #dce4d4, #c9d6c1)" }}>
+    <section id="contact" className="section" style={{ background: "linear-gradient(180deg, var(--contact-top), var(--contact-bottom))" }}>
       <div className="wrap">
         <Reveal>
           <p className="label">Contact</p>
-          <Reveal variant="flip">
-            <h2 className="h2">{CONTACT.heading}</h2>
-          </Reveal>
+          <BurstText as="h2" className="h2">{CONTACT.heading}</BurstText>
           <p className="sub">{CONTACT.sub}</p>
         </Reveal>
         <div className="mt-10 grid gap-6 lg:grid-cols-[.9fr_1.1fr]">

@@ -1,36 +1,43 @@
 import { TOOLS, type Tool } from "@/data/tools";
+import { BurstText } from "./BurstText";
+import { Marquee } from "./Marquee";
 import { Reveal } from "./Reveal";
 
-function Row({ tools, reverse }: { tools: Tool[]; reverse?: boolean }) {
-  const items = [...tools, ...tools];
+function Tools({ tools }: { tools: Tool[] }) {
   return (
-    <div className={`rail ${reverse ? "rail-rev" : ""}`}>
-      <div className="track">
-        {items.map(([name, color, path], i) => (
-          <span key={`${name}-${i}`} className="tool" style={{ "--c": color } as React.CSSProperties} aria-hidden={i >= tools.length}>
-            <svg viewBox="0 0 24 24" aria-hidden>
-              <path d={path} />
-            </svg>
-            {name}
-          </span>
-        ))}
-      </div>
-    </div>
+    <>
+      {tools.map(([name, color, path]) => (
+        <span key={name} className="tool" style={{ "--c": color } as React.CSSProperties}>
+          <svg viewBox="0 0 24 24" aria-hidden>
+            <path d={path} />
+          </svg>
+          {name}
+        </span>
+      ))}
+    </>
   );
 }
 
 export function TechStack() {
   const half = Math.ceil(TOOLS.length / 2);
   return (
-    <section aria-labelledby="tech-h" className="py-12 pb-16" style={{ background: "linear-gradient(180deg, transparent, rgba(169,188,162,.25), transparent)" }}>
+    <section
+      aria-label="Tools I reach for"
+      className="py-12 pb-16"
+      style={{ background: "linear-gradient(180deg, transparent, var(--chip-bg), transparent)" }}
+    >
       <Reveal className="wrap">
         <p className="label">Tech stack</p>
-        <Reveal variant="flip">
-          <h2 id="tech-h" className="h2 mb-8">Tools I reach for</h2>
-        </Reveal>
+        <BurstText as="h2" className="h2 mb-8">
+          Tools I reach for
+        </BurstText>
       </Reveal>
-      <Row tools={TOOLS.slice(0, half)} />
-      <Row tools={TOOLS.slice(half)} reverse />
+      <Marquee speed={4}>
+        <Tools tools={TOOLS.slice(0, half)} />
+      </Marquee>
+      <Marquee speed={3.4} reverse>
+        <Tools tools={TOOLS.slice(half)} />
+      </Marquee>
     </section>
   );
 }

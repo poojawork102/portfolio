@@ -3,9 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
-
-const MAROON = "#7a1f33";
-const SAGE = "#7e9878";
+import { cssVar, useTheme } from "@/lib/theme";
 
 function dotTexture() {
   const c = document.createElement("canvas");
@@ -36,7 +34,7 @@ const hash01 = (i: number) => {
   return x - Math.floor(x);
 };
 
-function build(count: number) {
+function build(count: number, MAROON: string, SAGE: string) {
   {
     const world = new THREE.Group();
     world.rotation.z = 0.35;
@@ -76,9 +74,9 @@ function build(count: number) {
   }
 }
 
-function Scene({ reduce, count }: { reduce: boolean; count: number }) {
+function Scene({ reduce, count, accent, sage }: { reduce: boolean; count: number; accent: string; sage: string }) {
   const mouse = useRef({ x: 0, y: 0, sx: 0, sy: 0 });
-  const [scene] = useState(() => build(count));
+  const [scene] = useState(() => build(count, accent, sage));
   const objs = useRef(scene);
   const { dispose } = scene;
 
@@ -120,6 +118,9 @@ export default function Globe() {
   // This component only ever runs in the browser (loaded with ssr: false).
   const [reduce] = useState(() => window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   const [count] = useState(() => (window.innerWidth < 900 ? 700 : 1200));
+  const theme = useTheme();
+  const accent = cssVar("--c-accent", "#7a1f33");
+  const sage = cssVar("--c-sage-mid", "#7e9878");
   return (
     <Canvas
       dpr={[1, 2]}
@@ -128,7 +129,7 @@ export default function Globe() {
       frameloop={reduce ? "demand" : "always"}
       aria-hidden
     >
-      <Scene reduce={reduce} count={count} />
+      <Scene key={theme} reduce={reduce} count={count} accent={accent} sage={sage} />
     </Canvas>
   );
 }

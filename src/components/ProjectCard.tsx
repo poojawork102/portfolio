@@ -21,7 +21,7 @@ export function ProjectCard({ project, preview }: { project: Project; preview: R
         data-cursor
       >
         <div
-          className={`relative overflow-hidden border-[var(--line)] bg-[#f3ede1] ${
+          className={`relative overflow-hidden border-[var(--line)] bg-art-bg ${
             featured ? "aspect-[640/384] border-b md:aspect-auto md:min-h-full md:border-b-0 md:border-r" : "aspect-[640/384] border-b"
           }`}
         >

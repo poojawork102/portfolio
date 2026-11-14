@@ -1,6 +1,6 @@
 import type { Contributions } from "@/lib/github";
 
-const LEVELS = ["#e4dccb", "#cbd6c3", "#9db497", "#6f8b69", "#7a1f33"];
+const LEVELS = [0, 1, 2, 3, 4].map((n) => `var(--color-lvl-${n})`);
 
 /** GitHub-style activity grid, drawn on the server as SVG. */
 export function ContributionGraph({ data }: { data: Contributions }) {

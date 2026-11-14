@@ -1,7 +1,13 @@
+"use client";
+
+import { useRef } from "react";
 import Image from "next/image";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Mail, FileText } from "lucide-react";
 import { HERO, SITE } from "@/data/profile";
 import { HeroItem } from "./HeroItem";
+import { BurstText } from "./BurstText";
+import { useIntroDone } from "./useIntroDone";
 import { Rich } from "./Rich";
 import { Tilt } from "./Tilt";
 import { GlobeLazy } from "./GlobeLazy";
@@ -11,10 +17,17 @@ const iconLink =
   "grid size-[50px] place-items-center rounded-[14px] border border-[rgba(79,106,76,.25)] bg-sage-light transition-[transform,border-color,background-color] duration-300 hover:-translate-y-[3px] hover:border-sage-deep hover:bg-sage";
 
 export function Hero() {
+  const ready = useIntroDone();
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  // The photo and the text drift apart as you scroll past the hero.
+  const photoY = useTransform(scrollYProgress, [0, 1], [0, 120]);
+  const textY = useTransform(scrollYProgress, [0, 1], [0, -60]);
+  const fade = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
   return (
-    <section className="relative grid min-h-svh items-center pb-16 pt-[110px]">
+    <section ref={ref} className="relative grid min-h-svh items-center overflow-x-clip pb-16 pt-[110px]">
       <div className="wrap grid items-center gap-[clamp(2rem,5vw,4.5rem)] lg:grid-cols-[1.25fr_.85fr]">
-        <div>
+        <motion.div style={{ y: textY, opacity: fade }}>
           <HeroItem i={0} className="flex flex-wrap items-center gap-x-6 gap-y-3 text-[0.95rem] text-muted">
             <span>{SITE.location}</span>
             <span className="status-dot inline-flex items-center gap-2.5 text-ink">{SITE.status}</span>
@@ -29,11 +42,15 @@ export function Hero() {
             ))}
           </HeroItem>
 
-          <HeroItem i={2}>
-            <h1 className="m-0 font-display text-[clamp(2.9rem,7vw,5.6rem)] font-extrabold leading-[0.98] tracking-[-0.035em]">
-              {SITE.name}
-            </h1>
-          </HeroItem>
+          <BurstText
+            as="h1"
+            active={ready}
+            spread={140}
+            delay={0.1}
+            className="m-0 font-display text-[clamp(2.9rem,7vw,5.6rem)] font-extrabold leading-[0.98] tracking-[-0.035em]"
+          >
+            {SITE.name}
+          </BurstText>
           <HeroItem i={3}>
             <p className="mt-4 font-mono text-[clamp(.95rem,1.4vw,1.1rem)] text-maroon">{SITE.role}</p>
           </HeroItem>
@@ -52,16 +69,17 @@ export function Hero() {
             <a href={SITE.linkedin} aria-label="LinkedIn" className={iconLink}><LinkedInIcon /></a>
             <a href={SITE.resume} aria-label="Resume" className={iconLink}><FileText size={22} strokeWidth={1.7} /></a>
           </HeroItem>
-        </div>
+        </motion.div>
 
-        <HeroItem i={3} className="relative mx-auto w-full max-w-[340px] lg:mx-0 lg:max-w-none">
+        <motion.div style={{ y: photoY }} className="relative mx-auto w-full max-w-[340px] lg:mx-0 lg:max-w-none">
+          <HeroItem i={3}>
           <div className="pointer-events-none absolute left-1/2 top-1/2 size-[135%] -translate-x-1/2 -translate-y-1/2">
             <GlobeLazy />
           </div>
           <Tilt max={9} className="rounded-[28px]">
             <div
               className="group relative aspect-[4/5] overflow-hidden rounded-[28px] border border-[var(--line-2)]"
-              style={{ background: "radial-gradient(90% 70% at 50% 15%, #c3d1bc, #a9bcA2 50%, #7e9878 100%)" }}
+              style={{ background: "radial-gradient(90% 70% at 50% 15%, var(--c-art-fill-2), var(--c-art-fill) 50%, var(--c-art-fill-3) 100%)" }}
             >
               <Image
                 src="/pooja.webp"
@@ -73,7 +91,8 @@ export function Hero() {
               />
             </div>
           </Tilt>
-        </HeroItem>
+          </HeroItem>
+        </motion.div>
       </div>
     </section>
   );

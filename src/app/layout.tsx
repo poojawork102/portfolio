@@ -10,10 +10,19 @@ import { SmoothScroll } from "@/components/SmoothScroll";
 import { StarField } from "@/components/StarField";
 import { Cursor } from "@/components/Cursor";
 import { Intro } from "@/components/Intro";
+import { ScrollProgress } from "@/components/ScrollProgress";
 import { Providers } from "@/components/Providers";
 
-// Runs before the page paints: skip the intro on repeat visits in this session or with reduced motion.
-const introScript = `try{if(sessionStorage.getItem("intro")==="1"||matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.dataset.intro="skip"}catch(e){}`;
+// Runs before the page paints, so the theme and the intro never flash the wrong state.
+const bootScript = `try{
+var r=document.documentElement;
+var t=localStorage.getItem("theme");
+if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";
+r.dataset.theme=t;
+var m=document.querySelector('meta[name="theme-color"]');
+if(m)m.setAttribute("content",t==="dark"?"#14100f":"#efe8da");
+if(sessionStorage.getItem("intro")==="1"||matchMedia("(prefers-reduced-motion: reduce)").matches)r.dataset.intro="skip";
+}catch(e){}`.replace(/\s*\n\s*/g, "");
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -41,11 +50,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: introScript }} />
+        <script dangerouslySetInnerHTML={{ __html: bootScript }} />
       </head>
       <body>
         <Providers>
           <SmoothScroll />
+          <ScrollProgress />
           <StarField />
           <div className="page-glow" aria-hidden />
           <Cursor />

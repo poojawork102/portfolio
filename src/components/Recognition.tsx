@@ -3,6 +3,7 @@ import { RECOGNITION, SITE } from "@/data/profile";
 import { CERTS } from "@/data/certs";
 import { getContributions, getGitHubStats } from "@/lib/github";
 import { ContributionGraph } from "./ContributionGraph";
+import { BurstText } from "./BurstText";
 import { Reveal } from "./Reveal";
 
 export async function Recognition() {
@@ -14,9 +15,7 @@ export async function Recognition() {
       <div className="wrap">
         <Reveal>
           <p className="label">Recognition</p>
-          <Reveal variant="flip">
-            <h2 className="h2">Selections and live stats</h2>
-          </Reveal>
+          <BurstText as="h2" className="h2">Selections and live stats</BurstText>
         </Reveal>
 
         <div className="mt-10 grid gap-5 lg:grid-cols-3">

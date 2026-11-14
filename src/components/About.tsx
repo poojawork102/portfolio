@@ -1,5 +1,6 @@
 import { CircleCheck } from "lucide-react";
 import { ABOUT } from "@/data/profile";
+import { BurstText } from "./BurstText";
 import { Reveal } from "./Reveal";
 import { Rich } from "./Rich";
 
@@ -9,9 +10,7 @@ export function About() {
       <div className="wrap grid items-start gap-[clamp(2rem,5vw,4.5rem)] lg:grid-cols-2">
         <Reveal>
           <p className="label">About</p>
-          <Reveal variant="flip">
-            <h2 className="h2">{ABOUT.heading}</h2>
-          </Reveal>
+          <BurstText as="h2" className="h2">{ABOUT.heading}</BurstText>
           {ABOUT.paragraphs.map((t) => (
             <p key={t.slice(0, 20)} className="sub">
               <Rich text={t} />

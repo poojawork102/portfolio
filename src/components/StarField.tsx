@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { cssVar, useTheme } from "@/lib/theme";
 
 /** Slow drifting dots and the occasional streak behind the whole page. */
 export function StarField() {
   const ref = useRef<HTMLCanvasElement>(null);
+  const theme = useTheme();
 
   useEffect(() => {
     const cv = ref.current;
@@ -15,6 +17,9 @@ export function StarField() {
     type Star = { x: number; y: number; r: number; a: number; tw: number; sp: number };
     type Streak = { x: number; y: number; life: number; len: number };
     let W = 0, H = 0, stars: Star[] = [], streaks: Streak[] = [], raf = 0, last = performance.now();
+    const warm = cssVar("--star-a", "#7a1f33");
+    const cool = cssVar("--star-b", "#6f8b69");
+    const alpha = Number(cssVar("--star-alpha", "0.55")) || 0.55;
 
     const size = () => {
       W = window.innerWidth; H = window.innerHeight;
@@ -31,8 +36,8 @@ export function StarField() {
       g.clearRect(0, 0, W, H);
       for (const s of stars) {
         if (!reduce) { s.y -= s.sp * dt * 12; s.tw += dt * 1.5; if (s.y < -2) { s.y = H + 2; s.x = Math.random() * W; } }
-        g.globalAlpha = 0.55 * s.a * (0.65 + 0.35 * Math.sin(s.tw));
-        g.fillStyle = s.r > 1.2 ? "#7a1f33" : "#6f8b69";
+        g.globalAlpha = alpha * s.a * (0.65 + 0.35 * Math.sin(s.tw));
+        g.fillStyle = s.r > 1.2 ? warm : cool;
         g.beginPath(); g.arc(s.x, s.y, s.r, 0, 6.283); g.fill();
       }
       if (!reduce && Math.random() < dt * 0.35 && streaks.length < 2)
@@ -41,9 +46,10 @@ export function StarField() {
       for (const s of streaks) {
         const k = s.life / 1.6, x = s.x + k * 260, y = s.y + k * 160;
         const gr = g.createLinearGradient(x - s.len * 0.85, y - s.len * 0.52, x, y);
-        gr.addColorStop(0, "rgba(122,31,51,0)");
-        gr.addColorStop(1, `rgba(122,31,51,${(0.55 * Math.sin(Math.PI * k)).toFixed(3)})`);
-        g.globalAlpha = 1; g.strokeStyle = gr; g.lineWidth = 1.2;
+        gr.addColorStop(0, "transparent");
+        gr.addColorStop(1, warm);
+        g.globalAlpha = 0.55 * Math.sin(Math.PI * k);
+        g.strokeStyle = gr; g.lineWidth = 1.2;
         g.beginPath(); g.moveTo(x - s.len * 0.85, y - s.len * 0.52); g.lineTo(x, y); g.stroke();
       }
       g.globalAlpha = 1;
@@ -56,7 +62,7 @@ export function StarField() {
     window.addEventListener("resize", size);
     document.addEventListener("visibilitychange", onVis);
     return () => { cancelAnimationFrame(raf); window.removeEventListener("resize", size); document.removeEventListener("visibilitychange", onVis); };
-  }, []);
+  }, [theme]);
 
   return <canvas ref={ref} aria-hidden className="pointer-events-none fixed inset-0 z-0 size-full" />;
 }

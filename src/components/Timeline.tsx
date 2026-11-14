@@ -29,9 +29,9 @@ export function Timeline({ roles }: { roles: Role[] }) {
         >
           <motion.span
             aria-hidden
-            className="absolute -left-[31px] top-[.45rem] size-3 rounded-full border-2 border-sage-deep"
-            initial={{ backgroundColor: "#dce4d4" }}
-            whileInView={{ backgroundColor: "#4f6a4c" }}
+            className="absolute -left-[31px] top-[.45rem] size-3 rounded-full border-2 border-sage-deep bg-sage-deep"
+            initial={{ opacity: 0.25 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ margin: "0px 0px -35% 0px" }}
           />
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-[0.85rem] text-muted">

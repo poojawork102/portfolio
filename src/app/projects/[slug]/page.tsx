@@ -60,7 +60,7 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
             </div>
           </Reveal>
 
-          <Reveal className="card relative mt-10 aspect-[640/384] overflow-hidden bg-[#f3ede1]">
+          <Reveal className="card relative mt-10 aspect-[640/384] overflow-hidden bg-art-bg">
             <ProjectPreview project={p} priority />
           </Reveal>
 
