@@ -30,7 +30,7 @@ export const PROJECTS: Project[] = [
     featured: true,
     details: [
       { label: "Problem", text: "Planning a bathroom means juggling space, fixtures, budget and water rules at once." },
-      { label: "My part", text: "Solo build: brief parser, layout solver, Flask app and tests." },
+      { label: "Solution", text: "Reads a plain-English brief, places every fixture against clearance and plumbing rules, prices the result and returns a scaled plan." },
       { label: "Key decision", text: "A verify, repair, fallback loop so the app never returns an impossible layout." },
       { label: "Result", text: "22 passing tests. Got me selected for the Kohler AI Lab." },
     ],
@@ -45,8 +45,8 @@ export const PROJECTS: Project[] = [
     art: "qc",
     details: [
       { label: "Problem", text: "Emerson's Project Eagle Eye: manual quality checks on cabinets are slow and miss small defects." },
+      { label: "Solution", text: "A camera over the line; the vision model marks each panel ok or defective with a confidence score and flags the unit for rework before it ships." },
       { label: "Event", text: "VIT Code Apex 3.0 hackathon, VIT Pune, built with Anjali, Piyush and Sid." },
-      { label: "My part", text: "Presented our proposed solution in the team pitch. Confirm and add what you built." },
     ],
   },
   {
@@ -59,7 +59,7 @@ export const PROJECTS: Project[] = [
     art: "risk",
     details: [
       { label: "Problem", text: "Bots can resubmit and reorder admission data faster than staff can review it." },
-      { label: "My part", text: "Team project. I designed the risk scoring and tested the system." },
+      { label: "Solution", text: "Every request gets a weighted risk score from IP history, duplicate data and submission speed. Low passes, middle gets a captcha, high is blocked and logged." },
       { label: "Key decision", text: "Weighted score (IP 40%, duplicates 30%, speed 30%) so only the middle tier needs a human." },
       { label: "Result", text: "Isolation Forest validated on simulated bot traffic, with JWT auth and daily audit logs." },
     ],
@@ -74,7 +74,7 @@ export const PROJECTS: Project[] = [
     art: "net",
     details: [
       { label: "Problem", text: "A file can arrive corrupted, and plain TCP will not tell you." },
-      { label: "My part", text: "Solo build for the Computer Networks lab: client, server and live dashboard." },
+      { label: "Solution", text: "Splits the file into chunks, checksums each one on arrival and asks for a resend on any mismatch, with a dashboard showing it happen." },
       { label: "Key decision", text: "Dropped extra attack modes to keep one thing done properly: verified delivery." },
       { label: "Result", text: "Checksum check on every transfer, shown live on the dashboard." },
     ],
@@ -89,7 +89,7 @@ export const PROJECTS: Project[] = [
     art: "money",
     details: [
       { label: "Problem", text: "Students lose track of small daily spends until the month is gone." },
-      { label: "My part", text: "Solo build, deployed on Vercel for personal use." },
+      { label: "Solution", text: "Logs each spend against a category budget, warns the moment a category goes over, and charts the week so the pattern is visible early." },
       { label: "Key decision", text: "11 MySQL triggers keep balances correct without manual checks." },
       { label: "Result", text: "Live tracker, plus a C++ desktop version that works offline." },
     ],

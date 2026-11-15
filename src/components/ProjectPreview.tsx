@@ -19,6 +19,8 @@ export function ProjectPreview({ project, priority }: { project: Project; priori
   return (
     <svg
       viewBox="0 0 640 384"
+      // fills the frame like the real screenshot does, instead of leaving bars
+      preserveAspectRatio="xMidYMid slice"
       role="img"
       aria-label={`Preview of ${project.name}`}
       className="absolute inset-0 size-full transition-transform duration-700 group-hover:scale-[1.035]"

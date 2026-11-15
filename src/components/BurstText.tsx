@@ -2,11 +2,17 @@
 
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 
-/** Same scatter for the same text on every render, so nothing jumps on hydration. */
+/**
+ * Same scatter for the same text on every render, so nothing jumps on hydration.
+ * Rounded to three decimals on purpose: the server writes these straight into
+ * the style attribute while the browser rounds them to three places, and a
+ * longer number makes the two copies differ and React report a mismatch.
+ */
 function noise(seed: number) {
   const x = Math.sin(seed * 127.1 + 311.7) * 43758.5453;
-  return (x - Math.floor(x)) * 2 - 1; // -1..1
+  return Math.round(((x - Math.floor(x)) * 2 - 1) * 1000) / 1000; // -1..1
 }
+const round3 = (n: number) => Math.round(n * 1000) / 1000;
 
 type Props = {
   children: string;
@@ -44,9 +50,9 @@ export function BurstText({ children, className = "", delay = 0, spread = 90, as
   const letter: Variants = {
     out: (i: number) => ({
       opacity: 0,
-      x: noise(i + 1) * spread,
-      y: noise(i + 17) * spread * 0.8,
-      rotate: noise(i + 41) * 42,
+      x: round3(noise(i + 1) * spread),
+      y: round3(noise(i + 17) * spread * 0.8),
+      rotate: round3(noise(i + 41) * 42),
       scale: 0.5,
     }),
     in: (i: number) => ({

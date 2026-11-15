@@ -1,10 +1,163 @@
 // Drawn previews shown until real screenshots are added.
-// Colours are theme variables, so they follow the light and dark themes.
-// Each is the inside of an <svg viewBox="0 0 640 384">.
-export const PROJECT_ART: Record<string, string> = {
-  qc: "<rect width=\"640\" height=\"384\" fill=\"var(--color-art-bg)\"/><g fill=\"none\" stroke=\"var(--color-art-muted)\" stroke-width=\"2\"><rect x=\"70\" y=\"70\" width=\"230\" height=\"250\" rx=\"6\"/><path d=\"M185 70v250M70 195h230\"/></g><circle cx=\"170\" cy=\"132\" r=\"4\" fill=\"var(--color-art-muted)\"/><circle cx=\"200\" cy=\"132\" r=\"4\" fill=\"var(--color-art-muted)\"/><g fill=\"none\" stroke-width=\"2.5\"><rect x=\"214\" y=\"222\" width=\"70\" height=\"44\" stroke=\"var(--color-art-bad)\"/><rect x=\"84\" y=\"86\" width=\"86\" height=\"96\" stroke=\"var(--color-art-ok)\"/></g><g font-family=\"IBM Plex Mono\" font-size=\"12\"><text x=\"214\" y=\"214\" fill=\"var(--color-art-bad)\">scratch 0.91</text><text x=\"84\" y=\"80\" fill=\"var(--color-art-ok)\">ok 0.97</text></g><path d=\"M330 70v250\" stroke=\"var(--color-art-track)\" stroke-width=\"2\"/><g font-family=\"Figtree Variable\"><text x=\"360\" y=\"108\" fill=\"var(--color-art-muted)\" font-size=\"14\">Line 2, unit 0418</text><text x=\"360\" y=\"150\" fill=\"var(--color-art-ink)\" font-family=\"Bricolage Grotesque Variable\" font-weight=\"800\" font-size=\"34\">1 defect</text></g><g font-family=\"IBM Plex Mono\" font-size=\"13\"><text x=\"360\" y=\"200\" fill=\"var(--color-art-muted)\">door panel   ok</text><text x=\"360\" y=\"224\" fill=\"var(--color-art-bad)\">side panel   scratch</text><text x=\"360\" y=\"248\" fill=\"var(--color-art-muted)\">hinge        ok</text></g><rect x=\"360\" y=\"276\" width=\"200\" height=\"36\" rx=\"18\" fill=\"var(--color-art-line)\"/><text x=\"460\" y=\"299\" text-anchor=\"middle\" fill=\"var(--color-art-on-accent)\" font-family=\"Figtree Variable\" font-weight=\"700\" font-size=\"14\">Send to rework</text>",
-  plan: "<rect width=\"640\" height=\"384\" fill=\"var(--color-art-bg)\"/><g fill=\"none\" stroke=\"var(--color-art-line)\" stroke-width=\"3\"><rect x=\"300\" y=\"60\" width=\"270\" height=\"250\"/><path d=\"M300 190h110v120M450 60v95\"/></g><g fill=\"var(--color-art-fill-2)\"><rect x=\"312\" y=\"72\" width=\"120\" height=\"70\"/><rect x=\"468\" y=\"72\" width=\"90\" height=\"50\"/><rect x=\"500\" y=\"250\" width=\"58\" height=\"48\"/></g><g fill=\"var(--color-art-ink)\" font-family=\"IBM Plex Mono\" font-size=\"12\"><text x=\"320\" y=\"112\">shower</text><text x=\"476\" y=\"102\">sink</text><text x=\"508\" y=\"280\">wc</text></g><g font-family=\"Figtree Variable\"><text x=\"48\" y=\"98\" fill=\"var(--color-art-muted)\" font-size=\"14\">Your brief</text><text x=\"48\" y=\"128\" fill=\"var(--color-art-ink)\" font-size=\"18\">3 x 2.4 m bathroom,</text><text x=\"48\" y=\"152\" fill=\"var(--color-art-ink)\" font-size=\"18\">walk-in shower,</text><text x=\"48\" y=\"176\" fill=\"var(--color-art-ink)\" font-size=\"18\">budget 1.5 lakh</text></g><g font-family=\"IBM Plex Mono\" font-size=\"12\" fill=\"var(--color-art-ok)\"><text x=\"48\" y=\"230\">ok  room fits</text><text x=\"48\" y=\"252\">ok  within budget</text><text x=\"48\" y=\"274\">ok  water rules</text></g><path d=\"M300 330h270\" stroke=\"var(--color-art-muted)\"/><text x=\"420\" y=\"352\" fill=\"var(--color-art-muted)\" font-family=\"IBM Plex Mono\" font-size=\"12\">3.0 m</text>",
-  risk: "<rect width=\"640\" height=\"384\" fill=\"var(--color-art-bg)\"/><rect x=\"280\" y=\"70\" width=\"70\" height=\"250\" rx=\"8\" fill=\"var(--color-art-fill-2)\"/><text x=\"315\" y=\"200\" fill=\"var(--color-art-ink)\" font-family=\"IBM Plex Mono\" font-size=\"12\" text-anchor=\"middle\" transform=\"rotate(-90 315 200)\">risk score</text><circle cx=\"50\" cy=\"80\" r=\"5\" fill=\"var(--color-art-muted)\"/><circle cx=\"103\" cy=\"177\" r=\"5\" fill=\"var(--color-art-muted)\"/><circle cx=\"156\" cy=\"274\" r=\"5\" fill=\"var(--color-art-muted)\"/><circle cx=\"209\" cy=\"141\" r=\"5\" fill=\"var(--color-art-muted)\"/><circle cx=\"52\" cy=\"238\" r=\"5\" fill=\"var(--color-art-muted)\"/><circle cx=\"105\" cy=\"105\" r=\"5\" fill=\"var(--color-art-muted)\"/><circle cx=\"158\" cy=\"202\" r=\"5\" fill=\"var(--color-art-muted)\"/><circle cx=\"211\" cy=\"299\" r=\"5\" fill=\"var(--color-art-muted)\"/><circle cx=\"54\" cy=\"166\" r=\"5\" fill=\"var(--color-art-muted)\"/><circle cx=\"107\" cy=\"263\" r=\"5\" fill=\"var(--color-art-muted)\"/><circle cx=\"160\" cy=\"130\" r=\"5\" fill=\"var(--color-art-muted)\"/><circle cx=\"213\" cy=\"227\" r=\"5\" fill=\"var(--color-art-muted)\"/><circle cx=\"56\" cy=\"94\" r=\"5\" fill=\"var(--color-art-muted)\"/><circle cx=\"109\" cy=\"191\" r=\"5\" fill=\"var(--color-art-muted)\"/><circle cx=\"162\" cy=\"288\" r=\"5\" fill=\"var(--color-art-muted)\"/><circle cx=\"215\" cy=\"155\" r=\"5\" fill=\"var(--color-art-muted)\"/><circle cx=\"58\" cy=\"252\" r=\"5\" fill=\"var(--color-art-muted)\"/><circle cx=\"111\" cy=\"119\" r=\"5\" fill=\"var(--color-art-muted)\"/><circle cx=\"164\" cy=\"216\" r=\"5\" fill=\"var(--color-art-muted)\"/><circle cx=\"217\" cy=\"83\" r=\"5\" fill=\"var(--color-art-muted)\"/><circle cx=\"60\" cy=\"180\" r=\"5\" fill=\"var(--color-art-muted)\"/><circle cx=\"113\" cy=\"277\" r=\"5\" fill=\"var(--color-art-muted)\"/><g font-family=\"Bricolage Grotesque Variable\" font-weight=\"700\" font-size=\"22\"><text x=\"470\" y=\"110\" fill=\"var(--color-art-ok)\">Allow</text><text x=\"470\" y=\"200\" fill=\"var(--color-art-warn)\">Captcha</text><text x=\"470\" y=\"290\" fill=\"var(--color-art-bad)\">Block</text></g><g stroke-width=\"2\" fill=\"none\"><path d=\"M350 140C400 130 420 105 460 104\" stroke=\"var(--color-art-ok)\"/><path d=\"M350 195h110\" stroke=\"var(--color-art-warn)\"/><path d=\"M350 250C400 260 420 285 460 285\" stroke=\"var(--color-art-bad)\"/></g><g font-family=\"IBM Plex Mono\" font-size=\"12\" fill=\"var(--color-art-muted)\"><text x=\"470\" y=\"130\">61</text><text x=\"470\" y=\"220\">9</text><text x=\"470\" y=\"310\">4</text></g>",
-  net: "<rect width=\"640\" height=\"384\" fill=\"var(--color-art-bg)\"/><g fill=\"none\" stroke=\"var(--color-art-line)\" stroke-width=\"3\"><rect x=\"50\" y=\"110\" width=\"150\" height=\"110\" rx=\"10\"/><rect x=\"440\" y=\"110\" width=\"150\" height=\"110\" rx=\"10\"/></g><g font-family=\"Bricolage Grotesque Variable\" font-weight=\"700\" font-size=\"20\" fill=\"var(--color-art-ink)\" text-anchor=\"middle\"><text x=\"125\" y=\"172\">Client</text><text x=\"515\" y=\"172\">Server</text></g><path d=\"M200 150h240M440 180H200\" stroke=\"var(--color-art-muted)\" stroke-dasharray=\"8 8\"/><rect x=\"290\" y=\"134\" width=\"40\" height=\"32\" rx=\"4\" fill=\"var(--color-art-fill)\"/><rect x=\"250\" y=\"164\" width=\"40\" height=\"32\" rx=\"4\" fill=\"var(--color-art-bad)\"/><g font-family=\"IBM Plex Mono\" font-size=\"13\"><text x=\"50\" y=\"268\" fill=\"var(--color-art-ok)\">chunk 41  checksum ok</text><text x=\"50\" y=\"292\" fill=\"var(--color-art-bad)\">chunk 42  mismatch, resent</text><text x=\"50\" y=\"316\" fill=\"var(--color-art-ok)\">chunk 42  checksum ok</text></g><text x=\"590\" y=\"320\" fill=\"var(--color-art-line)\" font-family=\"Bricolage Grotesque Variable\" font-weight=\"800\" font-size=\"44\" text-anchor=\"end\">128</text><text x=\"590\" y=\"342\" fill=\"var(--color-art-muted)\" font-family=\"IBM Plex Mono\" font-size=\"12\" text-anchor=\"end\">verified</text>",
-  money: "<rect width=\"640\" height=\"384\" fill=\"var(--color-art-bg)\"/><text x=\"48\" y=\"80\" fill=\"var(--color-art-muted)\" font-family=\"Figtree Variable\" font-size=\"15\">This week</text><text x=\"48\" y=\"128\" fill=\"var(--color-art-ink)\" font-family=\"Bricolage Grotesque Variable\" font-weight=\"800\" font-size=\"44\">Rs 2,340</text><rect x=\"330\" y=\"240\" width=\"24\" height=\"60\" rx=\"4\" fill=\"var(--color-art-fill-3)\"/><rect x=\"368\" y=\"210\" width=\"24\" height=\"90\" rx=\"4\" fill=\"var(--color-art-fill)\"/><rect x=\"406\" y=\"255\" width=\"24\" height=\"45\" rx=\"4\" fill=\"var(--color-art-fill-3)\"/><rect x=\"444\" y=\"180\" width=\"24\" height=\"120\" rx=\"4\" fill=\"var(--color-art-fill)\"/><rect x=\"482\" y=\"220\" width=\"24\" height=\"80\" rx=\"4\" fill=\"var(--color-art-fill-3)\"/><rect x=\"520\" y=\"150\" width=\"24\" height=\"150\" rx=\"4\" fill=\"var(--color-art-bad)\"/><rect x=\"558\" y=\"230\" width=\"24\" height=\"70\" rx=\"4\" fill=\"var(--color-art-fill-3)\"/><path d=\"M320 300h280\" stroke=\"var(--color-art-muted)\"/><g font-family=\"IBM Plex Mono\" font-size=\"13\"><text x=\"48\" y=\"190\" fill=\"var(--color-art-muted)\">food       62%</text><text x=\"48\" y=\"214\" fill=\"var(--color-art-muted)\">travel     21%</text><text x=\"48\" y=\"238\" fill=\"var(--color-art-bad)\">over limit: snacks</text></g><rect x=\"48\" y=\"262\" width=\"230\" height=\"8\" rx=\"4\" fill=\"var(--color-art-track)\"/><rect x=\"48\" y=\"262\" width=\"170\" height=\"8\" rx=\"4\" fill=\"var(--color-art-line)\"/>",
-};
+//
+// Each preview carries the colours the real product uses, not the site theme,
+// so it reads as a screenshot rather than an illustration — and so swapping in
+// an actual screenshot later changes nothing around it. That also means each
+// one paints its own background and stays identical in the light and dark
+// themes, exactly as a real screenshot would.
+//
+// Each value is the inside of an <svg viewBox="0 0 640 384">.
+
+const DISPLAY = "Bricolage Grotesque Variable";
+const SANS = "Figtree Variable";
+const MONO = "IBM Plex Mono";
+
+/** Plumbline: a drafting tool — paper white, ink-blue walls, blue fixtures. */
+const plan = `
+<rect width="640" height="384" fill="#f6f7f4"/>
+<g stroke="#e3e7e0" stroke-width="1">
+  <path d="M40 0v384M120 0v384M200 0v384M280 0v384M360 0v384M440 0v384M520 0v384M600 0v384"/>
+  <path d="M0 48h640M0 128h640M0 208h640M0 288h640M0 368h640"/>
+</g>
+<g fill="none" stroke="#27333b" stroke-width="4">
+  <rect x="300" y="60" width="270" height="250"/>
+  <path d="M300 190h110v120M450 60v95"/>
+</g>
+<g fill="#cfe0ec" stroke="#1b6ca8" stroke-width="2">
+  <rect x="312" y="72" width="120" height="70"/>
+  <rect x="468" y="72" width="90" height="50"/>
+  <rect x="500" y="250" width="58" height="48"/>
+</g>
+<g fill="#1b4a6b" font-family="${MONO}" font-size="12">
+  <text x="320" y="112">shower</text>
+  <text x="476" y="102">sink</text>
+  <text x="508" y="280">wc</text>
+</g>
+<g font-family="${SANS}">
+  <text x="48" y="98" fill="#7b8792" font-size="14">Your brief</text>
+  <text x="48" y="128" fill="#27333b" font-size="18">3 x 2.4 m bathroom,</text>
+  <text x="48" y="152" fill="#27333b" font-size="18">walk-in shower,</text>
+  <text x="48" y="176" fill="#27333b" font-size="18">budget 1.5 lakh</text>
+</g>
+<g font-family="${MONO}" font-size="12" fill="#157f3d">
+  <text x="48" y="230">ok  room fits</text>
+  <text x="48" y="252">ok  within budget</text>
+  <text x="48" y="274">ok  water rules</text>
+</g>
+<path d="M300 330h270" stroke="#9aa6ad" stroke-width="1.5"/>
+<path d="M300 324v12M570 324v12" stroke="#9aa6ad" stroke-width="1.5"/>
+<text x="420" y="352" fill="#7b8792" font-family="${MONO}" font-size="12" text-anchor="middle">3.0 m</text>
+`;
+
+/** QCSight: a machine-vision console — dark feed, green pass, red defect. */
+const qc = `
+<rect width="640" height="384" fill="#14181d"/>
+<rect x="60" y="56" width="250" height="278" fill="#1c2127"/>
+<g fill="none" stroke="#39424d" stroke-width="2">
+  <rect x="70" y="70" width="230" height="250" rx="4"/>
+  <path d="M185 70v250M70 195h230"/>
+</g>
+<circle cx="170" cy="132" r="4" fill="#5b6672"/>
+<circle cx="200" cy="132" r="4" fill="#5b6672"/>
+<g fill="none" stroke-width="2.5">
+  <rect x="214" y="222" width="70" height="44" stroke="#f43f5e"/>
+  <rect x="84" y="86" width="86" height="96" stroke="#22c55e"/>
+</g>
+<g font-family="${MONO}" font-size="12">
+  <text x="214" y="214" fill="#f43f5e">scratch 0.91</text>
+  <text x="84" y="80" fill="#22c55e">ok 0.97</text>
+</g>
+<g font-family="${SANS}">
+  <text x="360" y="108" fill="#8b949e" font-size="14">Line 2, unit 0418</text>
+  <text x="360" y="150" fill="#e8edf2" font-family="${DISPLAY}" font-weight="800" font-size="34">1 defect</text>
+</g>
+<g font-family="${MONO}" font-size="13">
+  <text x="360" y="200" fill="#8b949e">door panel   ok</text>
+  <text x="360" y="224" fill="#f43f5e">side panel   scratch</text>
+  <text x="360" y="248" fill="#8b949e">hinge        ok</text>
+</g>
+<rect x="360" y="276" width="200" height="36" rx="6" fill="#38bdf8"/>
+<text x="460" y="299" text-anchor="middle" fill="#06202e" font-family="${SANS}" font-weight="700" font-size="14">Send to rework</text>
+`;
+
+/** Risk scoring: a security console — slate, with traffic-light outcomes. */
+const risk = `
+<rect width="640" height="384" fill="#0f1620"/>
+<rect x="280" y="70" width="70" height="250" rx="8" fill="#1b2534"/>
+<text x="315" y="200" fill="#94a3b8" font-family="${MONO}" font-size="12" text-anchor="middle" transform="rotate(-90 315 200)">risk score</text>
+<g fill="#64748b">
+  <circle cx="50" cy="80" r="5"/><circle cx="103" cy="177" r="5"/><circle cx="156" cy="274" r="5"/>
+  <circle cx="209" cy="141" r="5"/><circle cx="52" cy="238" r="5"/><circle cx="105" cy="105" r="5"/>
+  <circle cx="158" cy="202" r="5"/><circle cx="211" cy="299" r="5"/><circle cx="54" cy="166" r="5"/>
+  <circle cx="107" cy="263" r="5"/><circle cx="160" cy="130" r="5"/><circle cx="213" cy="227" r="5"/>
+  <circle cx="56" cy="94" r="5"/><circle cx="109" cy="191" r="5"/><circle cx="162" cy="288" r="5"/>
+  <circle cx="215" cy="155" r="5"/><circle cx="58" cy="252" r="5"/><circle cx="111" cy="119" r="5"/>
+  <circle cx="164" cy="216" r="5"/><circle cx="217" cy="83" r="5"/><circle cx="60" cy="180" r="5"/>
+  <circle cx="113" cy="277" r="5"/>
+</g>
+<g font-family="${DISPLAY}" font-weight="700" font-size="22">
+  <text x="470" y="110" fill="#22c55e">Allow</text>
+  <text x="470" y="200" fill="#f59e0b">Captcha</text>
+  <text x="470" y="290" fill="#ef4444">Block</text>
+</g>
+<g stroke-width="2" fill="none">
+  <path d="M350 140C400 130 420 105 460 104" stroke="#22c55e"/>
+  <path d="M350 195h110" stroke="#f59e0b"/>
+  <path d="M350 250C400 260 420 285 460 285" stroke="#ef4444"/>
+</g>
+<g font-family="${MONO}" font-size="12" fill="#94a3b8">
+  <text x="470" y="130">61</text>
+  <text x="470" y="220">9</text>
+  <text x="470" y="310">4</text>
+</g>
+`;
+
+/** SecureTransfer: a terminal — the colours a real shell prints in. */
+const net = `
+<rect width="640" height="384" fill="#0d1117"/>
+<g fill="none" stroke="#30363d" stroke-width="3">
+  <rect x="50" y="110" width="150" height="110" rx="10"/>
+  <rect x="440" y="110" width="150" height="110" rx="10"/>
+</g>
+<g font-family="${DISPLAY}" font-weight="700" font-size="20" fill="#c9d1d9" text-anchor="middle">
+  <text x="125" y="172">Client</text>
+  <text x="515" y="172">Server</text>
+</g>
+<path d="M200 150h240M440 180H200" stroke="#8b949e" stroke-dasharray="8 8" stroke-width="1.5"/>
+<rect x="290" y="134" width="40" height="32" rx="4" fill="#238636"/>
+<rect x="250" y="164" width="40" height="32" rx="4" fill="#da3633"/>
+<g font-family="${MONO}" font-size="13">
+  <text x="50" y="268" fill="#3fb950">chunk 41  checksum ok</text>
+  <text x="50" y="292" fill="#f85149">chunk 42  mismatch, resent</text>
+  <text x="50" y="316" fill="#3fb950">chunk 42  checksum ok</text>
+</g>
+<text x="590" y="320" fill="#238636" font-family="${DISPLAY}" font-weight="800" font-size="44" text-anchor="end">128</text>
+<text x="590" y="342" fill="#8b949e" font-family="${MONO}" font-size="12" text-anchor="end">verified</text>
+`;
+
+/** UniPocket: a money app — white sheet, indigo bars, red over the limit. */
+const money = `
+<rect width="640" height="384" fill="#ffffff"/>
+<rect x="300" y="40" width="300" height="304" rx="12" fill="#f7f8fa"/>
+<text x="48" y="80" fill="#6b7280" font-family="${SANS}" font-size="15">This week</text>
+<text x="48" y="128" fill="#111827" font-family="${DISPLAY}" font-weight="800" font-size="44">Rs 2,340</text>
+<g>
+  <rect x="330" y="240" width="24" height="60" rx="4" fill="#c7d2fe"/>
+  <rect x="368" y="210" width="24" height="90" rx="4" fill="#4f46e5"/>
+  <rect x="406" y="255" width="24" height="45" rx="4" fill="#c7d2fe"/>
+  <rect x="444" y="180" width="24" height="120" rx="4" fill="#4f46e5"/>
+  <rect x="482" y="220" width="24" height="80" rx="4" fill="#c7d2fe"/>
+  <rect x="520" y="150" width="24" height="150" rx="4" fill="#ef4444"/>
+  <rect x="558" y="230" width="24" height="70" rx="4" fill="#c7d2fe"/>
+</g>
+<path d="M320 300h260" stroke="#d1d5db" stroke-width="1.5"/>
+<g font-family="${MONO}" font-size="13">
+  <text x="48" y="190" fill="#6b7280">food       62%</text>
+  <text x="48" y="214" fill="#6b7280">travel     21%</text>
+  <text x="48" y="238" fill="#ef4444">over limit: snacks</text>
+</g>
+<rect x="48" y="262" width="230" height="8" rx="4" fill="#e5e7eb"/>
+<rect x="48" y="262" width="170" height="8" rx="4" fill="#4f46e5"/>
+`;
+
+export const PROJECT_ART: Record<string, string> = { plan, qc, risk, net, money };

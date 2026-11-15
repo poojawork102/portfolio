@@ -1,6 +1,10 @@
 import type { Contributions } from "@/lib/github";
 
-const LEVELS = [0, 1, 2, 3, 4].map((n) => `var(--color-lvl-${n})`);
+// The raw theme variables, not the Tailwind `--color-*` aliases: Tailwind only
+// keeps an alias it can see spelled out in the source, and a name built in a
+// template literal is invisible to it, so those aliases get stripped from the
+// stylesheet and every cell falls back to black.
+const LEVELS = ["--c-lvl-0", "--c-lvl-1", "--c-lvl-2", "--c-lvl-3", "--c-lvl-4"].map((v) => `var(${v})`);
 
 /** GitHub-style activity grid, drawn on the server as SVG. */
 export function ContributionGraph({ data }: { data: Contributions }) {

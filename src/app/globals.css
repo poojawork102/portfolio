@@ -38,27 +38,6 @@
   --color-rose: #e58a9b;
   --color-night: #1c1112;
 
-  /* colours inside the drawn project previews */
-  --color-art-bg: var(--c-art-bg);
-  --color-art-line: var(--c-art-line);
-  --color-art-fill: var(--c-art-fill);
-  --color-art-fill-2: var(--c-art-fill-2);
-  --color-art-fill-3: var(--c-art-fill-3);
-  --color-art-ink: var(--c-art-ink);
-  --color-art-muted: var(--c-art-muted);
-  --color-art-ok: var(--c-art-ok);
-  --color-art-bad: var(--c-art-bad);
-  --color-art-warn: var(--c-art-warn);
-  --color-art-track: var(--c-art-track);
-  --color-art-on-accent: var(--c-art-on-accent);
-
-  /* GitHub contribution grid, quietest to busiest */
-  --color-lvl-0: var(--c-lvl-0);
-  --color-lvl-1: var(--c-lvl-1);
-  --color-lvl-2: var(--c-lvl-2);
-  --color-lvl-3: var(--c-lvl-3);
-  --color-lvl-4: var(--c-lvl-4);
-
   --font-display: "Bricolage Grotesque Variable", "Figtree Variable", system-ui, sans-serif;
   --font-sans: "Figtree Variable", system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
@@ -102,23 +81,16 @@
   --contact-bottom: #c9d6c1;
   --icon-light: 0%;
 
-  --c-art-bg: #f3ede1;
-  --c-art-line: #7a1f33;
   --c-art-fill: #a9bca2;
   --c-art-fill-2: #c3d1bc;
   --c-art-fill-3: #7e9878;
-  --c-art-ink: #2a1a1c;
-  --c-art-muted: #6e5e5c;
-  --c-art-ok: #4f6a4c;
-  --c-art-bad: #b23a48;
-  --c-art-warn: #a9762a;
-  --c-art-track: #e4dccb;
-  --c-art-on-accent: #f7f2e8;
+  /* GitHub's own greens, so the chart reads as a GitHub chart. Only the
+     empty level is warmed to the page so blank days recede. */
   --c-lvl-0: #e4dccb;
-  --c-lvl-1: #cbd6c3;
-  --c-lvl-2: #9db497;
-  --c-lvl-3: #6f8b69;
-  --c-lvl-4: #7a1f33;
+  --c-lvl-1: #9be9a8;
+  --c-lvl-2: #40c463;
+  --c-lvl-3: #30a14e;
+  --c-lvl-4: #216e39;
 }
 
 /* ---------- dark theme ---------- */
@@ -156,23 +128,15 @@
   --contact-bottom: #141a14;
   --icon-light: 45%;
 
-  --c-art-bg: #16120f;
-  --c-art-line: #e88fa2;
   --c-art-fill: #46573f;
   --c-art-fill-2: #5a6e52;
   --c-art-fill-3: #38452f;
-  --c-art-ink: #efe8da;
-  --c-art-muted: #a3948c;
-  --c-art-ok: #8fbf86;
-  --c-art-bad: #e8808f;
-  --c-art-warn: #d6a95c;
-  --c-art-track: #272020;
-  --c-art-on-accent: #1a1210;
+  /* GitHub's dark-mode greens. */
   --c-lvl-0: #272020;
-  --c-lvl-1: #39412f;
-  --c-lvl-2: #566b4e;
-  --c-lvl-3: #7e9878;
-  --c-lvl-4: #e88fa2;
+  --c-lvl-1: #0e4429;
+  --c-lvl-2: #006d32;
+  --c-lvl-3: #26a641;
+  --c-lvl-4: #39d353;
 }
 
 @layer base {
